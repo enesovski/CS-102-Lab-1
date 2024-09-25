@@ -1,4 +1,17 @@
+import java.util.Random;
 public class Utils{
+
+    
+    public static int[] random_array(int num){
+        int[] random_array=new int[num];
+        Random random=new Random();
+        for (int i=0;i<num;i++){
+            int number=random.nextInt(101);
+            random_array[i]=number;
+        }
+        return random_array;
+        
+    }
 
     //Enes
     public static int SumOddIndexElements(int[] array)
