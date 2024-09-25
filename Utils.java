@@ -1,7 +1,41 @@
 import java.util.Random;
 public class Utils{
 
-    
+    //Deniz
+    public static int findMax(int[] arr){
+        int index;
+
+        index = 0;
+
+        for( int i = 0 ; i < arr.length ; i++){
+
+            if(arr[i] >= arr[index]){
+                index = i;
+            }
+
+        }
+
+        return index;
+
+    }
+
+    public static int findMin(int[] arr){
+        int index;
+
+        index = 0;
+
+        for( int i = 0 ; i < arr.length ; i++){
+
+            if(arr[i] < arr[index]){
+                index = i;
+            }
+
+        }
+
+        return index;
+
+    }
+
     public static int[] random_array(int num){
         int[] random_array=new int[num];
         Random random=new Random();
