@@ -21,61 +21,73 @@ public class UtilsApp {
         Scanner input;
         int choice;
 
+        int[] list;
+
         input = new Scanner( System.in );
         choice = 0;
 
-        System.out.printf( "1) Create an array.\n2) Find maximum and minimum values of the array.\n3) Find the average of the array.\n4) Find the sum of elements with odd- and even-numbered indeces.\n5) Exit.\n" );
+        System.out.print("Give the size of the array: ");
+        int size = Integer.valueOf(input.nextLine());
+        
+        list = Utils.random_array(size);
+
+        System.out.println( "\n1) Find maximum and minimum values of the array.\n2) Find the average of the array.\n3) Find the sum of elements with odd- and even-numbered indexes\n4) Exit.\n" );
 
         System.out.print( "Please choose an option: " );
          
-        if( input.hasNextInt() ) {
-            choice = input.nextInt() ;
+        while (true) {
+            if( input.hasNextInt() ) {
+                choice = input.nextInt() ;
+                break;
+            }
+    
         }
 
-        while( choice != 5 ) {
+        while( choice != 4 ) {
+
 
             if( choice == 1 ) {
+                int max = Utils.findMax(list);
 
-                System.out.printf( "\n1) Create an array.\n2) Find maximum and minimum values of the array.\n3) Find the average of the array.\n4) Find the sum of elements with odd- and even-numbered indexes\n5) Exit.\n" );
+                int min = Utils.findMin(list);
 
-                System.out.print( "Please choose an option: " );
-        
+                System.out.printf("Max value : %d, Min value %d", max, min);
             }
 
             else if( choice == 2 ) {
+                
+                double[] differences = Utils.AverageDifference(list);
 
-                System.out.printf( "\n1) Create an array.\n2) Find maximum and minimum values of the array.\n3) Find the average of the array.\n4) Find the sum of elements with odd- and even-numbered indexes\n5) Exit.\n" );
-
-                System.out.print( "Please choose an option: " );
+                for (int i = 0; i < differences.length; i++) {
+                    System.out.printf("%.1f\n", differences[i]);
+                }
 
             }
 
             else if( choice == 3 ) {
+                int oddSum = Utils.SumOddIndexElements(list);
+                int evenSum = Utils.SumEvenIndexElements(list);
 
-                System.out.printf( "\n1) Create an array.\n2) Find maximum and minimum values of the array.\n3) Find the average of the array.\n4) Find the sum of elements with odd- and even-numbered indexes\n5) Exit.\n" );
-
-                System.out.print( "Please choose an option: " );
-        
+                System.out.printf("Sum of odd elements : %d, Sum of even elements %d", oddSum, evenSum);
             }
 
-            else if( choice == 4 ) {
-
-                System.out.printf( "\n1) Create an array.\n2) Find maximum and minimum values of the array.\n3) Find the average of the array.\n4) Find the sum of elements with odd- and even-numbered indexes\n5) Exit.\n" );
-
-                System.out.print( "Please choose an option: " );
-        
-            }
 
             else{
                 System.out.print( "\nPlease choose a valid option: " );
                 choice = 0;
             }
 
+            System.out.println( "\n1) Find maximum and minimum values of the array.\n2) Find the average of the array.\n3) Find the sum of elements with odd- and even-numbered indexes\n4) Exit.\n" );
+
+            System.out.print( "Please choose an option: " );
+
             input.nextLine();
 
             if( input.hasNextInt() ) {
                 choice = input.nextInt();
             }
+
+
 
         }
 
